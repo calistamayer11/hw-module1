@@ -2,6 +2,10 @@ from letters import letter_frequency, letter_count
 
 
 def highest_freq(file):
+    """
+    Uses dictionary of all the letter frequencies and creates a new dictionary.
+    Function scrolls through each and finds the highest letter frequency and returns it as a tuple.
+    """
     frequency_dict = letter_frequency(letter_count(file))
     max_value = 0
     max_key = ""
