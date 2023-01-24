@@ -3,8 +3,9 @@ from letters import letter_frequency, letter_count
 
 def highest_freq(file):
     """
-    Uses dictionary of all the letter frequencies and creates a new dictionary.
-    Function scrolls through each and finds the highest letter frequency and returns it as a tuple.
+    Uses file name as input to create a dictionary of letter:frequencies.
+    Function scrolls through each letter:frequency in dictionary and finds the highest frequency.
+    Returns letter and max frequency as a tuple.
     """
     frequency_dict = letter_frequency(letter_count(file))
     max_value = 0
@@ -18,8 +19,11 @@ def highest_freq(file):
     return (max_key, max_value)
 
 
-print(highest_freq("frost.txt"))
-(ltr, freq) = highest_freq("frost.txt")
+if __name__ == "__main__":
+    ltr, freq = highest_freq("frost.txt")
+    expected_highest_freq_frost = ("i", 0.10952380952380952)
+    assert expected_highest_freq_frost == (ltr, freq)
 
-expected_highest_freq = ("i", 0.10952380952380952)
-assert expected_highest_freq == (ltr, freq)
+    hunger_games_tuple = highest_freq("The_Hunger_Games.txt")
+    expected_highest_freq_hunger_games = ("e", 0.12451162240025257)
+    assert expected_highest_freq_hunger_games == hunger_games_tuple
